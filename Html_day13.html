@@ -1,0 +1,93 @@
+<!--Task 1: Add Accessibility Features to an HTML Page-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Web Page</title>
+</head>
+<body>
+
+  <!-- Semantic Header and Navigation -->
+  <header>
+    <h1>My Accessible Website</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Image with alt attribute -->
+  <section id="home">
+    <h2>Welcome</h2>
+    <img src="team.jpg" alt="Team collaborating around a table" width="500">
+    <p>We focus on creating inclusive web experiences.</p>
+  </section>
+
+  <!-- Button with aria-label -->
+  <section>
+    <button aria-label="Open the side menu">☰</button>
+  </section>
+
+  <!-- Live Region -->
+  <section>
+    <h2>Notifications</h2>
+    <div aria-live="polite" id="liveMessage">No new messages.</div>
+    <button onclick="showNewMessage()">Simulate New Message</button>
+  </section>
+
+  <script>
+    function showNewMessage() {
+      document.getElementById('liveMessage').textContent = "You have a new notification!";
+    }
+  </script>
+
+</body>
+</html>
+<!--Task 2a. Finding Accessibility Issues-->
+<html>
+<head>
+  <title>Contact Us</title>
+</head>
+<body>
+
+  <img src="logo.png"> <!-- ❌ Missing alt text -->
+
+  <form>
+    Name: <input type="text"><br> <!-- ❌ Missing label -->
+    Email: <input type="email"><br> <!-- ❌ Missing label -->
+    <button>Send</button> <!-- ❌ Missing aria-label -->
+  </form>
+
+</body>
+</html>
+
+<!--Task 2b. Fixed Accessibility Issues-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+</head>
+<body>
+
+  <!-- Descriptive alt text -->
+  <img src="logo.png" alt="Company Logo">
+
+  <form aria-label="Contact form">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <!-- Button with label -->
+    <button type="submit" aria-label="Submit the contact form">Send</button>
+  </form>
+
+</body>
+</html>
+
